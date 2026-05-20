@@ -6,8 +6,6 @@
 -- Run: psql -U campusfix_user -d campusfix_db -f schema.sql
 -- ════════════════════════════════════════════════════════════════
 
-SET client_encoding = 'UTF8';
-SET timezone = 'Asia/Kolkata';
 
 -- ── DROP EXISTING ─────────────────────────────────────────────
 DROP TABLE IF EXISTS ratings         CASCADE;
