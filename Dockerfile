@@ -10,4 +10,4 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/campusfix-1.0.0.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["sh","-c","DB_JDBC=$(echo $DATABASE_URL | sed 's|postgres://|jdbc:postgresql://|'); java -Xms128m -Xmx400m -DSPRING_DATASOURCE_URL=$DB_JDBC -jar app.jar"]
+ENTRYPOINT ["sh","-c","DB_JDBC=$(echo $DATABASE_URL | sed 's|^postgres[a-z]*://|jdbc:postgresql://|'); java -Xms128m -Xmx400m -DSPRING_DATASOURCE_URL=\"$DB_JDBC\" -jar app.jar"]
